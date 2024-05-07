@@ -36,6 +36,18 @@ https://medium.com/@khaifunglim97/how-to-build-a-flutter-app-with-c-c-libraries-
 
 
 
+#github 如何删除Project
+步骤1：导航到需要删除的项目，例如：
+   https://github.com/wangcan0202/go-proxy-bingai
+   进入项目后，能看到 Code / Pull Request  ...../Settings
+   点击最后一项，也是最右侧项，进入Settings
+步骤2：进入 Settings 在屏幕左侧为树形列表，右侧为具体操作区
+    General 这部分可以修改项目名称
+    拉到最下方，有“Danger Zone”
+    最后一项：Delete this repository 按钮就是删除本project,点击后按照提示操作就可以了
+
+
+
 代码简单解析
    本工程代码主要是以docker方式进行配置的，所以，首先需要看的文件是：
        /Dockerfile
