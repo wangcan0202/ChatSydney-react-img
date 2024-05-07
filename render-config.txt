@@ -34,6 +34,50 @@ https://github.com/viopsa233/AI-testers-Forum/discussions/68
 Flutter 如何与编写C/C++插件
 https://medium.com/@khaifunglim97/how-to-build-a-flutter-app-with-c-c-libraries-via-ffi-on-android-and-ios-including-opencv-1e2124e85019
 
+
+
+代码简单解析
+   本工程代码主要是以docker方式进行配置的，所以，首先需要看的文件是：
+       /Dockerfile
+          在这个文件中：其他都是配置环境的参数，最重要代码是：
+              CMD ["python", "-m","main","-H","0.0.0.0:8080"]
+          表明，本工程是使用python作为web service的，入口文件是 main.py
+      
+      /main.py 入口文件，实现web service ,web socket server 作为proxy 访问 bing AI
+          if __name__ == '__main__': #此处开始时 main.py 入口执行处
+
+          loop.run_until_complete(main(host, port)) #以线程方式执行 main() 函数，函数定义如下
+          # 主要函数
+          async def main(host, port):
+
+          #main函数中
+          app.router.add_get('/ws/', websocket_handler) #web socket 处理流程 ,不分析，只分析 web service
+          app.router.add_get('/{tail:.*}', http_handler) # web service 处理流程
+
+          #重要全局变量定义：定义根目录
+          public_dir = '/public'
+
+          #http_handler 函数为web service 处理函数，用于页面显示
+          async def http_handler(request):
+              file_path = request.path
+              #缺省文件是 index.html
+              if file_path == "/":
+                  file_path = "/index.html"
+              full_path = os.path.realpath('.' + public_dir + file_path)
+
+              #不是根目录路径，禁止访问
+              if not full_path.startswith(os.path.realpath('.' + public_dir)):
+                   raise web.HTTPForbidden()
+
+              #网页文件返回显示HTTP
+              response = web.FileResponse(full_path)
+              response.headers['Cache-Control'] = 'no-store'
+              return response
+
+          
+
+
+
       
 
 
