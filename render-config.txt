@@ -1,0 +1,41 @@
+
+homepage:
+https://test123-kzkq.onrender.com/
+
+homepage config:
+https://dashboard.render.com/
+
+config:
+https://github.com/viopsa233/AI-testers-Forum/discussions/68
+
+最近B站上看了一个render一键部署go-proxy-bingai的视频，我试了下搭建了一个ChatSydney，Render云平台提供了免费搭建应用的资源，512M RAM ，0.1 CPU，可运行时长每月750 hours，带宽每月200G，长时间不使用会休眠，有请求时自动唤醒，实测搭建ChatSydney还是没问题的，服务器是国外的，相当于自带魔法，有需要的小伙伴可以试试，有问题随时交流
+1 github账号一个
+2 登录render （可使用github账号，也可使用邮箱注册）
+
+配置方法：
+步骤1：准备github上的代码
+   1）访问 https://github.com/renqabs/ChatSydney-react-img
+   2）fork 给自己：例如 https://github.com/wangcan0202/ChatSydney-react-img main 分支
+
+
+步骤2：申请免费域名
+   1）访问：https://dashboard.render.com/
+   2）可以选择 github登录 或者 google账号登录
+   3）进入界面后，选择 New -> Web Service
+   4）在 Create a new Web Service 界面中，选择 
+       build and deploy from a git repository
+   5）在 Connect a repository 页面中选择 步骤1中创建的git
+   6）在Runtime 中选择 docker
+   7）在Instance Type 中选择 Free
+   8）点击Advaned,将Auto-Deploy 改为No
+   9）点击 Create Web Service
+   10） 在部署页面中如果失败，请点击右上角的手动发布
+      
+Flutter 如何与编写C/C++插件
+https://medium.com/@khaifunglim97/how-to-build-a-flutter-app-with-c-c-libraries-via-ffi-on-android-and-ios-including-opencv-1e2124e85019
+
+      
+
+
+
+
